@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{%if ok%}
+{%if word_data_list%}
+    {%for i in word_data_list%}
+        {{i}}<br>
+    {%endfor%}
+{%else%}
+    <form method="post">
+        {%csrf_token%}
+        <input type="text" name="word">
+        <input type="submit" value="전송">
+    </form>
+    <table border="1">
+        <th>넘버</th>
+        <th>이름</th>
+        <th>화</th>
+        <th>원본링크</th>
+        <th>키워드</th>
+        <th>날짜</th>
+    {%for i in data_views_list%}
+        <tr>
+            <td>{{i.id}}</td>
+            <td><a href="../view/{{i.keyword}}">{{i.ko_title}}</a></td>
+            <td>{{i.update_count}}</td>
+            <td>{{i.link}}</td>
+            <td>{{i.keyword}}</td>
+            <td>{{i.date}}</td>
+        </tr>
+    {%endfor%}
+    </table>
+{%endif%}
+{%endif%}
+</body>
+</html>

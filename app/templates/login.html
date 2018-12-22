@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{%if ok%}
+성공<br>
+<a href="../view/">서비스 이동</a>
+{%else%}
+<form method="post">
+    {%csrf_token%}
+    <input type="password" name="pw">
+    <input type="submit">
+</form>
+{%endif%}
+</body>
+</html>
