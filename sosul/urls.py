@@ -22,5 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('view/',views.view_sing),
     path('view/<str:word>',views.get_view),
-    path('login/',views.login)
+    path('login/',views.login),
+    path('sb/<str:pw>/<str:keyword>/',views.sb)
 ]

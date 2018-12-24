@@ -117,3 +117,23 @@ def login(request):
             request,
             'login.html'
         )
+
+
+def sb(request,pw,keyword):
+    if pw == 'qjtmxjtlfqj!2':
+        data_word = Sosul.objects.get(keyword=keyword)
+        with open(data_word.data_path, 'rt', encoding='utf-8') as f:
+            word_data_test = f.read().split('/n')
+        return render(
+            request,
+            'insert_views.html',
+            {
+                'word_data_list': word_data_test,
+                'ok': 1
+            }
+        )
+    else:
+        return render(
+            request,
+            'login.html'
+        )
